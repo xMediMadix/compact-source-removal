@@ -1,0 +1,108 @@
+{
+  // General information:
+  // - A root "experiments" folder is created to organize each experiment.
+  // - Within it, a folder with the model name contains a timestamped folder with the experiment name.
+  // - This experiment folder contains the code, configuration file, trained models, and visualization images.
+  "experiment": "Project Name",
+  // Set the experiment name; this will create an organized folder structure for outputs.
+
+  "model": {
+    "name": "PConvUNet",
+    // Specify model name. To use a custom model, implement it in `code.models.architectures.py` and reference it here.
+    "input_channels": 1,
+    "output_channels": 1
+  },
+  "optimization": {
+    "optimizer": {
+      "type": "Adam",
+      // Choose any PyTorch optimizer (e.g., "Adam", "SGD", etc.)
+      "learning_rate": 0.0005,
+      "weight_decay": 1e-5
+    },
+    "scheduler": {
+      "type": "ReduceLROnPlateau",
+      // Example scheduler; other options include "StepLR", etc.
+      "params": {
+        "mode": "min",
+        "factor": 0.5,
+        "patience": 4,
+        "verbose": true
+      }
+    }
+    // Example of another scheduler setup:
+    // "scheduler": {
+    //   "type": "StepLR",
+    //   "params": {
+    //     "step_size": 10,
+    //     "gamma": 0.1
+    //   }
+    // }
+  },
+  "loss": {
+    "name": "InpaintingLoss",
+    // Choose from implemented losses: "InpaintingLoss", "L1Loss", "MSELoss".
+    // To add a custom loss function, implement it in `code.losses.loss_functions.py` and reference it here.
+    "lambdas": {
+      "reconstruction": 6.0,
+      "style": 120.0,
+      "ssim": 0.4,
+      "source": 1.0
+    }
+  },
+  "data": {
+    "dataset_name": "HerschelNumpyDatasetMultiMasks",
+    // Dataset class in PyTorch (`code.data.dataset`). Implement custom datasets similarly.
+    "data_dir": "./data/numpy_examples/",
+    // Should contain subfolders: `train`, `train_mask`, `train_target`, `valid`, `valid_mask`, `valid_target`.
+    "csv_dir": "./data/csv_examples/",
+    // Directory with `train.csv` and `valid.csv` if using HerschelNumpyDatasetMultiMasks.
+
+    "augmentation": {
+      "use_augmentation": true,
+      "probability": 0.5
+      // Modify augmentation pipeline in `code.data.transforms` to add new transformations.
+    },
+    "mask_type": "snr_mask",
+    // For HerschelNumpyDatasetMultiMasks only; uses pre-existing mask channels in .npy files.
+
+    "input_size": [
+      96,
+      96
+    ]
+    // Modify if needed, but note PConvUNet is implemented for 96x96. Adjust model architecture if input size changes.
+  },
+  "dataloader": {
+    "train": {
+      "batch_size": 64,
+      "shuffle": true,
+      "num_workers": 8,
+      "pin_memory": true
+      // Typical setup for training; adjust based on system capacity.
+    },
+    "validation": {
+      "batch_size": 64,
+      "shuffle": false,
+      "num_workers": 8,
+      "pin_memory": true
+      // Typical setup for validation; adjust if needed.
+    }
+  },
+  "training": {
+    "epochs": 20,
+    // Total training epochs.
+    "visualization_batches": [
+      1,
+      2,
+      3
+    ]
+    // Batch indices for visualization during validation.
+  },
+  "logging": {
+    "log_to_wandb": false,
+    // Set to true to log with Weights & Biases; requires login and setup.
+    "wandb_project": "Project Name"
+    // Name of the Weights & Biases project if logging enabled.
+  },
+  "random_seed": 42
+  // Set seed for reproducibility.
+}
