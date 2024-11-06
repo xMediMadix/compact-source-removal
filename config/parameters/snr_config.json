@@ -1,0 +1,48 @@
+{
+  "scanmap": {
+    "blue": {
+      "inner_radius": 10,
+      "outer_radius": 22,
+      "source_radius": 8,
+      "snr_thresholds": [300, 140, 13, 8, 4],
+      "mask_sizes": [12, 11, 9, 7, 6, 5]
+    },
+    "green": {
+      "inner_radius": 10,
+      "outer_radius": 22,
+      "source_radius": 8,
+      "snr_thresholds": [300, 140, 13, 8, 4],
+      "mask_sizes": [13, 11, 10, 8, 6, 5]
+    },
+    "red": {
+      "inner_radius": 10,
+      "outer_radius": 22,
+      "source_radius": 8,
+      "snr_thresholds": [300, 140, 13, 8, 4],
+      "mask_sizes": [10, 9, 8, 7, 6, 4]
+    }
+  },
+  "parallel": {
+    "blue": {
+      "inner_radius": 8,
+      "outer_radius": 18,
+      "source_radius": 4,
+      "snr_thresholds": [855, 590, 300, 20, 13],
+      "mask_sizes": [9, 8, 7, 6, 5, 4]
+    },
+    "green": {
+      "inner_radius": 8,
+      "outer_radius": 18,
+      "source_radius": 4,
+      "snr_thresholds": [855, 590, 300, 20, 13],
+      "mask_sizes": [10, 9, 8, 7, 5, 4]
+    },
+    "red": {
+      "inner_radius": 10,
+      "outer_radius": 22,
+      "source_radius": 8,
+      "snr_thresholds": [300, 140, 13, 8, 4],
+      "mask_sizes": [10, 9, 8, 7, 6, 4]
+    }
+  }
+}

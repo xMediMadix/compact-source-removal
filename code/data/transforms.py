@@ -1,12 +1,61 @@
-"""Custom data transformations for inpainting tasks in the Compact Source Removal project.
+"""
+Custom data transformations and interpolation functions for inpainting tasks in the Compact Source Removal project.
 
-This module provides transformations like random flips and rotations. Users can define additional
-custom transformations here to extend the data augmentation pipeline.
+This module provides transformations like random flips and rotations, as well as interpolation for filling NaN values.
+Users can extend the data augmentation pipeline or add additional preprocessing functions here.
 """
 
 import random
 import torch
 import kornia
+
+from scipy.interpolate import griddata
+import numpy as np
+
+
+def interpolate_nans(img):
+    """
+    Interpolates NaN values in a 2D image array by filling them based on surrounding pixel values.
+    This function uses nearest-neighbor interpolation to estimate and replace NaN values.
+
+    Args:
+        img (np.ndarray): 2D numpy array (image) containing NaN values where interpolation is needed.
+
+    Returns:
+        np.ndarray: The input image with NaN values interpolated using nearest neighbors.
+    """
+    # Create arrays representing the indices of the image
+    x = np.arange(0, img.shape[1])
+    y = np.arange(0, img.shape[0])
+
+    # Create a meshgrid for the indices
+    x_grid, y_grid = np.meshgrid(x, y)
+
+    # Get the indices of where the NaNs are
+    array_nans = np.isnan(img)
+    nans_x = x_grid[array_nans]
+    nans_y = y_grid[array_nans]
+
+    # Get the indices of where the NaNs aren't
+    array_not_nans = ~array_nans
+    not_nans_x = x_grid[array_not_nans]
+    not_nans_y = y_grid[array_not_nans]
+
+    # Get the values of the pixels where the NaNs aren't
+    img_values = img[array_not_nans]
+
+    # Interpolate the values for the NaN pixels
+    interpolated_values = griddata(
+        (not_nans_y, not_nans_x),
+        img_values,
+        (nans_y, nans_x),
+        method='nearest'
+    )
+
+    # Fill the NaN pixels in the original image with the interpolated values
+    img[array_nans] = interpolated_values
+
+    return img
 
 
 class CustomTransform:  # pylint: disable=too-few-public-methods

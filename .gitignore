@@ -162,11 +162,9 @@ cython_debug/
 #.idea/
 
 # Data in the project
-*.npy
-*.csv
-*.pth
-*.png
+data/
 experiments/
+evaluation_output/
 
 # IDE
 .idea/

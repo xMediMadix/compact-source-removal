@@ -1,0 +1,33 @@
+{
+  "experiment": "scanmap_blue_simulation_test",  // Name of the experiment
+
+  "observing_parameters": {
+    "observing_mode": "scanmap",  // Observing mode: either "scanmap" or "parallel"
+    "band": "blue"                // Band of observation: "blue", "green", or "red"
+  },
+
+  "mode": "simulation",  // Mode of evaluation: "simulation" (with injected sources) or "real_data" (real compact sources)
+  "center_refinement": false,  // If true, re-centers source coordinates using quadratic centroiding
+
+  "model": {
+    "name": "PConvUNet",                     // Model architecture name
+    "input_channels": 1,                     // Number of input channels for the model
+    "output_channels": 1,                    // Number of output channels for the model
+    "weights_path": "./data/trained_models/scanmap.pth"  // Path to the trained weights; use "scanmap.pth" or "parallel.pth" based on observing mode
+  },
+
+  "data": {
+    "test_data_dir": "./data/simulation_examples",  // Path to the .fits and .csv files for evaluation
+    "original_maps_path": "./data/original_examples",  // Path to original maps (only required if mode is "simulation")
+    "mask_type": "snr_mask",                   // Mask type: "large_mask", "medium_mask", "small_mask", or "snr_mask"
+    "input_size": [96, 96],                    // Size of input image (e.g., 96x96 pixels)
+    "aperture_sizes": [5, 6, 7]                // List of aperture sizes for photometry; refer to vesta_aperture_correction.json for predefined sizes
+  },
+
+  "dataloader": {
+    "batch_size": 1,       // Number of samples per batch
+    "num_workers": 4       // Number of worker threads to load data
+  },
+
+  "evaluation_functionalities": ["save_predictions", "photometry"]  // Options: "save_predictions" (export source-free images) and/or "photometry" (export photometry results to CSV)
+}
