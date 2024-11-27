@@ -1,0 +1,24 @@
+name: csr
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - tqdm
+  - opencv
+  - astropy
+  - photutils
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  - json5
+  - kornia
+  - wandb
+
