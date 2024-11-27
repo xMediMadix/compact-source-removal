@@ -26,7 +26,7 @@
 
   "dataloader": {
     "batch_size": 1,       // Number of samples per batch
-    "num_workers": 4       // Number of worker threads to load data
+    "num_workers": 0       // Number of worker threads to load data. NOTE: on Windows, we found it only works with num_workers=0; On a linux machine, we used num_workers=4
   },
 
   "evaluation_functionalities": ["save_predictions", "photometry"]  // Options: "save_predictions" (export source-free images) and/or "photometry" (export photometry results to CSV)

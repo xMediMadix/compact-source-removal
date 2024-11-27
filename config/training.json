@@ -75,14 +75,14 @@
     "train": {
       "batch_size": 64,
       "shuffle": true,
-      "num_workers": 8,
+      "num_workers": 0,  // NOTE: on Windows, we found it only works with num_workers=0; On a linux machine, we used num_workers=8
       "pin_memory": true
       // Typical setup for training; adjust based on system capacity.
     },
     "validation": {
       "batch_size": 64,
       "shuffle": false,
-      "num_workers": 8,
+      "num_workers": 0,  // NOTE: on Windows, we found it only works with num_workers=0; On a linux machine, we used num_workers=8
       "pin_memory": true
       // Typical setup for validation; adjust if needed.
     }

@@ -10,7 +10,6 @@ from datetime import datetime
 
 import cv2
 import torch
-import wandb
 import numpy as np
 import matplotlib.pyplot as plt
 from astropy.visualization import ZScaleInterval
@@ -69,13 +68,17 @@ class Logger:
 
     def _init_wandb(self):
         """Initialize wandb if it's enabled in the configuration."""
-        # Log in to wandb
-        wandb.login()
-
-        # Add requirement for wandb core
-        wandb.require("core")
 
         if self.config['logging'].get('log_to_wandb', False):
+            # Import only if it is required (otherwise log-in is necessary)
+            import wandb
+
+            # Log in to wandb
+            wandb.login()
+
+            # Add requirement for wandb core
+            wandb.require("core")
+
             tags = [
                 self.config['model']['name'],
                 self.config['optimization']['optimizer']['type'],
