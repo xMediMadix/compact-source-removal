@@ -46,7 +46,7 @@ To ensure compatibility and avoid dependency conflicts, we recommend using a con
    ```
 
 ### Note on PyTorch and CUDA
-If you plan to use the model on a GPU, ensure the PyTorch and CUDA versions match your system's GPU and driver configuration. The `requirements.yml` specifies `pytorch-cuda=12.1` as the default version. If your setup requires a different CUDA version:
+If you intend to use the model on a GPU, it is recommended to first proceed with the default configuration specified in `requirements.yml`, which uses `pytorch-cuda=12.1`. Skip this step and attempt to run the code as-is to verify functionality. If you encounter issues related to GPU usage or PyTorch compatibility, you can revisit this step to troubleshoot and ensure that the PyTorch and CUDA versions align with your system's GPU and driver configuration:
 1. Visit [PyTorch's Get Started Guide](https://pytorch.org/get-started/locally/) to check compatibility.
 2. Update the PyTorch and CUDA versions in the `requirements.yml` or manually install them after setting up the environment. For example:
    ```bash
