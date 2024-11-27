@@ -37,11 +37,11 @@ Follow the steps below to set up the environment and utilize the provided functi
 To ensure compatibility and avoid dependency conflicts, we recommend using a conda environment. We provide a `requirements.yml` file for convenience. Follow the instructions below to set up the environment:
 
 1. **Install Conda**: Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Anaconda](https://www.anaconda.com/) if not already installed.
-2. **Create Environment**: Use the provided `requirements.yml` file to set up the environment.
+2. **Create Environment**: Use the provided `environment.yml` file to set up the environment.
 
    **Command:**
    ```bash
-   conda env create -f requirements.yml
+   conda env create -f environment.yml
    conda activate csr
    ```
 
