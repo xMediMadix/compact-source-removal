@@ -1,6 +1,6 @@
-# Compact Source Removal in Herschel Data
+# Compact Source Removal
 
-This repository contains the official implementation of our paper **"A Deep Neural Network Approach to Compact Source Removal in Herschel Data"**. The code enables the removal of compact sources from Herschel Space Observatory photometric observations, facilitating the analysis of extended emissions and improving the photometry of compact sources.
+This repository contains the official implementation of our paper **"A Deep Neural Network Approach to Compact Source Removal"**. The code enables the removal of compact sources from Herschel Space Observatory photometric observations, facilitating the analysis of extended emissions and improving the photometry of compact sources.
 
 > **Note:** If you use this repository in your work, please cite our paper. Citation details will be added upon publication.
 
@@ -261,7 +261,7 @@ This section is for users who wish to implement their own datasets and train a m
 
 If you use this repository or find it helpful in your research, please consider citing our paper:
 
-**"A Deep Neural Network Approach to Compact Source Removal in Herschel Data"**
+**"A Deep Neural Network Approach to Compact Source Removal"**
 
 The citation details will be added here after the paper is published.
 
