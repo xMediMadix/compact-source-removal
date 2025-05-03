@@ -259,7 +259,7 @@ This section is for users who wish to implement their own datasets and train a m
 
 ## How to Cite
 
-If you use this repository or find it helpful in your research, please consider [citing our paper](https://www.aanda.org/component/makeref/?task=show&type=html&doi=10.1051/0004-6361/202453262):
+If you use this repository or find it helpful in your research, please consider [citing our paper](https://www.aanda.org/articles/aa/full_html/2025/04/aa53262-24/aa53262-24.html):
 ```bibtex
 @article{ madarasz_2025,
 	author = {{Madarász, M.} and {Marton, G.} and {Gezer, I.} and {Lehner, S.} and {Roquette, J.} and {Audard, M.} and {Hernandez, D.} and {Dionatos, O.}},
