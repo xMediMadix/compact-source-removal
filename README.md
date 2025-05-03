@@ -259,11 +259,19 @@ This section is for users who wish to implement their own datasets and train a m
 
 ## How to Cite
 
-If you use this repository or find it helpful in your research, please consider citing our paper:
-
-**"A Deep Neural Network Approach to Compact Source Removal"**
-
-The citation details will be added here after the paper is published.
+If you use this repository or find it helpful in your research, please consider [citing our paper](https://www.aanda.org/component/makeref/?task=show&type=html&doi=10.1051/0004-6361/202453262):
+```bibtex
+@article{ madarasz_2025,
+	author = {{Madarász, M.} and {Marton, G.} and {Gezer, I.} and {Lehner, S.} and {Roquette, J.} and {Audard, M.} and {Hernandez, D.} and {Dionatos, O.}},
+	title = {A deep neural network approach to compact source removal},
+	DOI= "10.1051/0004-6361/202453262",
+	url= "https://doi.org/10.1051/0004-6361/202453262",
+	journal = {A&A},
+	year = 2025,
+	volume = 696,
+	pages = "A37",
+}
+```
 
 ---
 
