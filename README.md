@@ -65,7 +65,7 @@ To verify that the installation works and to help users understand how to use an
 #### Steps to Set Up the Data
 
 1. **Download the Dataset**  
-   Download the dataset zip file from [this link](https://drive.google.com/file/d/1OOVHGwEenRHBrYOoaT05Lu5f0wJFiJba/view?usp=sharing).
+   Download the dataset zip file from [this link](https://drive.google.com/file/d/1_8roNBRT77ShxDL9mD6AWRQYc1AYBPIs/view?usp=sharing).
 
 2. **Extract the Contents**  
    Extract the zip file into the `./data/` directory in the root of the repository. After extraction, the folder structure should look like this:
